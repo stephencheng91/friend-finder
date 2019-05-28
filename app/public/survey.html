@@ -127,7 +127,8 @@
     </select>
 
     <h3><strong>Question 9</strong></h3>
-    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.
+    </h4>
     <select class="chosen-select" id="q9">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
@@ -152,13 +153,15 @@
     <br>
 
     <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
-     Submit</button>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+        aria-hidden="true"></i>
+      Submit</button>
 
     <hr>
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/stephencheng91/friend-finder.git">GitHub Repo</a></p>
+        <p><a href="/api/friends">API Friends List</a> | <a
+            href="https://github.com/stephencheng91/friend-finder.git">GitHub Repo</a></p>
       </div>
     </footer>
 
@@ -187,35 +190,34 @@
   </div>
 
 
-<script>
+  <script>
 
-// get the inputs
-$("#submit").on("click", function(){
-    console.log("click")
-   var name =  $("#name").val();
-   var photo = $("#photo").val();
-    var userValue = [];
-    for (var i = 1; i <= 10; i++){
-        userValue.push($("#q"+i));
-    }
-    var input = {
-      name: name,
-      photo: photo,
-      uservalue: userValue      
-    };
-    console.log(input)
-    // call the route (Ajax) method POST and the route /api/friends
-    // get the response and show a model with the solution  
-    $.post("/api/friends", input, function(data){
+    // get the inputs
+    $("#submit").on("click", function () {
+      var name = $("#name").val();
+      var photo = $("#photo").val();
+      var userValue = [];
+      for (var i = 1; i <= 10; i++) {
+        userValue.push($("#q" + i).val());
+      }
+      var input = {
+        name: name,
+        photo: photo,
+        uservalue: userValue
+      };
+      console.log(input.uservalue);
+      // call the route (Ajax) method POST and the route /api/friends
+      // get the response and show a modal with the solution  
+      $.post("/api/friends", input, function (data) {
 
         console.log(data)
 
-    })
-});
+      })
+    });
 
 
 
-</script>
+  </script>
 
 </body>
 
