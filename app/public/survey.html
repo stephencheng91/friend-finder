@@ -203,15 +203,14 @@
       var input = {
         name: name,
         photo: photo,
-        uservalue: userValue
+        userValue: userValue
       };
-      console.log(input.uservalue);
+     
       // call the route (Ajax) method POST and the route /api/friends
       // get the response and show a modal with the solution  
-      $.post("/api/friends", input, function (data) {
-
-        console.log(data)
-
+      $.post("/api/friends", input, function (data,status) {
+        console.log(data);
+        console.log(status);
       })
     });
 

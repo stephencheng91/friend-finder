@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "dependencies": {
+    "array-sort": "^1.0.0",
+    "express": "^4.17.1",
+    "sort": "^0.0.3"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -17,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/stephencheng91/friend-finder/issues"
   },
-  "homepage": "https://github.com/stephencheng91/friend-finder#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/stephencheng91/friend-finder#readme"
 }
