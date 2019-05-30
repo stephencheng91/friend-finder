@@ -13,21 +13,35 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        //Getting current user
-        var newUserName = req.body.name;
+
+        //10 questions, max difference in 1 question is 4, 4*10 =40
+        var diff = 40;
 
         //Loop to each user on the datalist
         for (var i = 0; i < friendsData.length; i++) {
             var user = friendsData[i];
-
             var scoresDiff = 0;
             for (var j = 0; j < user.scores.length; j++) {
                 //Getting the difference between each saved user to current user
                 scoresDiff += Math.abs(user.scores[j] - req.body.userValue[j]);
             }
-            console.log("user: " + user.name + " Score Diff: " + scoresDiff);
+            // console.log("user: " + user.name + " Score Diff: " + scoresDiff);
 
+            if (scoresDiff < diff){
+                diff = scoresDiff;
+                name = user.name;
+                photo = user.photo;
+                var output = {
+                    name: name,
+                    photo: photo,
+                    diff: diff
+                }
+            }
         }
+        // console.log("name: "+name+ "Diff: "+ diff);
+        
+        console.log(output);
+        res.json(output);
     });
 
 }
